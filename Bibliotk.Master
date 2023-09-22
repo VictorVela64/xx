@@ -1,0 +1,330 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Bibliotk.master.cs" Inherits="BibliotkApp.Bibliotk" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+
+<!DOCTYPE html>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+ <!-- Iconic Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="vendors\iconic-fonts\font-awesome\css\all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendors\iconic-fonts\flat-icons\flaticon.css">
+  <link rel="stylesheet" href="vendors\iconic-fonts\cryptocoins\cryptocoins.css">
+  <link rel="stylesheet" href="vendors\iconic-fonts\cryptocoins\cryptocoins-colors.css">
+
+<link href="assets\css\bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery UI -->
+  <link href="assets\css\jquery-ui.min.css" rel="stylesheet">
+  <!-- Page Specific CSS (Slick Slider.css) -->
+  <link href="assets\css\slick.css" rel="stylesheet">
+  <!-- Mystic styles -->
+  <link href="assets\css\style.css" rel="stylesheet">
+
+<html>
+<head runat="server">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+<%--<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>--%>
+    <title>Bibliotecas Publicas Municipales</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
+    <!-- Setting Panel -->
+  <div class="ms-toggler ms-settings-toggle ms-d-block-lg">
+    <i class="flaticon-paint"></i>
+  </div>
+  <div class="ms-settings-panel ms-d-block-lg">
+    <div class="row">
+      <div class="col-xl-4 col-md-6">
+        <h4 class="section-title">Temas</h4>
+        <div>
+          <label class="ms-switch">
+             <input type="checkbox" id="dark-mode" >
+             <span class="ms-switch-slider round"></span>
+           </label>
+          <span> Modo Dark</span>
+        </div>
+        <div>
+          <label class="ms-switch">
+             <input type="checkbox" id="remove-quickbar" >
+             <span class="ms-switch-slider round"></span>
+           </label>
+          <span>Remover Barra</span>
+        </div>
+      </div>
+
+
+    <div class="col-xl-3 col-md-2">
+        <div class="logo-sn ms-d-block-lg">
+        <a class="pl-0 ml-0 text-center" href="Default.aspx"> <img src="Image/Escudo23.png" alt="logo" width="300" height="200" > </a>
+        </div>
+    </div>
+
+      <div class="col-xl-4 col-md-6">
+        <div>
+            <asp:Label ID="Label2" Text="Desarrollado por la Direccion de Innovación Gubernamental y T. I." runat="server" Font-Bold="true" Font-Size="Medium" Font-Italic="true" ForeColor="#333399"></asp:Label>
+        </div>
+        <div>
+            <asp:Label ID="Label3" Text="H. Ayuntamiento de Coatzacoalcos, Ver." runat="server" Font-Bold="true" Font-Size="Medium" Font-Italic="true" ForeColor="#990000"></asp:Label>
+        </div>
+         
+      </div>
+    </div>
+</div>
+  
+     <!-- Overlays -->
+  <div class="ms-aside-overlay ms-overlay-left ms-toggler" data-target="#ms-side-nav" data-toggle="slideLeft"></div>
+  <div class="ms-aside-overlay ms-overlay-right ms-toggler" data-target="#ms-recent-activity" data-toggle="slideRight"></div>
+
+   <!-- Sidebar Navigation Left -->
+   <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
+
+    <!-- Logo -->
+    <div class="logo-sn ms-d-block-lg">
+      <a class="pl-0 ml-0 text-center" href="Default.aspx"> <img src="Image\Escudo23.png" alt="logo"> </a>
+    </div>
+
+    <!-- Navigation -->
+    <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
+        <!-- Dashboard -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
+               <span><i class="flaticon-reader fs-16"></i> Libros</span>
+             </a>
+            <ul id="dashboard" class="collapse" aria-labelledby="dashboard" data-parent="#side-nav-accordion">
+              <li> <a class="flaticon-sticky-note fs-10"  href="RegistroLibroswebpag.aspx"> Nuevo</a> </li>
+              <li> <a class="flaticon-share-1 fs-10"  href="PrestamoLibrosWebPag.aspx"> Prestamos</a> </li>
+              <li> <a class="flaticon-user fs-10" href="PrestatariosPag.aspx"> Prestatarios</a> </li>
+            </ul>
+        </li>
+        <!-- /Dashboard -->
+        <li class="menu-item">
+          <a href="ConsultaGeneraLibrosPag.aspx">
+            <span><i class="material-icons fs-16">search</i> Consultas de Libros</span>
+          </a>
+        </li>
+
+         <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#advanced-elements" aria-expanded="false" aria-controls="advanced-elements">
+              <span><i class="material-icons fs-16">computer</i>Equipos de Computo</span>
+            </a>
+            <ul id="advanced-elements" class="collapse" aria-labelledby="advanced-elements" data-parent="#side-nav-accordion">
+              <li> <a href="EquiposComputoConsultaPag.aspx" class="flaticon-computer fs-10">  Prestamos</a> </li>
+              <li> <a href="PrestatarioEquiposWebPag.aspx" class="flaticon-user fs-10"> Prestatarios</a></li>
+            </ul>
+        </li>
+        <!-- Basic UI Elements -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Catalogo" aria-expanded="false" aria-controls="Catalogo">
+              <span><i class="material-icons fs-16">menu</i> Catalogo</span>
+            </a>
+            <ul id="Catalogo" class="collapse" aria-labelledby="Catalogo" data-parent="#side-nav-accordion">
+              <li> <a href="CatalogoBibliotksPag.aspx" class="flaticon-tick-inside-circle fs-10"> Bibliotecas</a> </li>
+              <li> <a href="CatalogoCategoriasWebPag.aspx" class="flaticon-hammer fs-10" > Categorias</a> </li>
+              <li> <a href="CatalogoPropositosWebPag.aspx" class="flaticon-archive fs-10"> Propositos</a></li>
+              <li> <a href="EquiposComputoRegistroWebPag.aspx" class="flaticon-computer fs-10"> Equipos de Computo</a></li>
+            </ul>
+        </li>
+        <!-- Form Elements -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <span><i class="material-icons fs-16">archive</i> Reportes</span>
+            </a>
+            <ul id="form-elements" class="collapse" aria-labelledby="form-elements" data-parent="#side-nav-accordion">
+              <li> <a href="#">Listados</a> </li>
+              <li> <a href="PrestamoEquiposWebPag.aspx">Pagina para el sitio (Prestamo PCs y Consulta Libros)</a> </li>
+            </ul>
+        </li>
+        <!-- /Form Elements -->
+       
+        <!-- Pages -->
+        <li class="menu-item">
+          <a href="#" class="has-chevron" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages">
+            <span><i class="material-icons fs-16">security</i> Seguridad</span>
+          </a>
+          <ul id="pages" class="collapse" aria-labelledby="pages" data-parent="#side-nav-accordion">
+            <li class="menu-item">
+              <a href="#" class="has-chevron" data-toggle="collapse" data-target="#authentication" aria-expanded="false" aria-controls="authentication">Authentication</a>
+              <ul id="authentication" class="collapse" aria-labelledby="authentication" data-parent="#pages">
+                <li> <a href="ControlUsuariosWebPag.aspx" class="flaticon-secure-shield fs-10"> Control de Usuarios</a> </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <!-- /Pages -->
+        <li class="menu-item">
+            <a href="#" class="has-chevron" data-toggle="collapse" data-target="#Logout" aria-expanded="false" aria-controls="Logout">
+              <span><i class="flaticon-shut-down mr-2"></i> Cerrar Sesion</span>
+            </a>
+            <ul id="Logout" class="collapse" aria-labelledby="form-elements" data-parent="#side-nav-accordion">
+              <li> <a href="\Account\OutSession.aspx" class="flaticon-start fs-10"> Salir</a> </li>
+            </ul>
+        </li>
+        <!-- /Pages -->
+       
+    </ul>
+    
+    <ul>
+         <li class="align-content-sm-end">
+            <div style="padding: 100px 0;">
+                <i class="col-md-2"></i><img class="icon" src="Image\user-32.png" alt="my icon"/><asp:Label ID="lbluser" runat="server" Font-Size="Large" Font-Italic="true" ForeColor="White"></asp:Label>
+            </div>
+        </li>
+    </ul>
+
+  </aside>
+
+    
+
+<!-- Sidebar Right -->
+  
+    <!-- Main Content -->
+  <main class="body-content">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar ms-navbar">
+
+      <div class="ms-aside-toggler ms-toggler pl-0" data-target="#ms-side-nav" data-toggle="slideLeft">
+        <span class="ms-toggler-bar bg-primary"></span>
+        <span class="ms-toggler-bar bg-primary"></span>
+        <span class="ms-toggler-bar bg-primary"></span>
+      </div>
+
+      <div class="logo-sn logo-sm ms-d-block-sm">
+        <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="Default.aspx"><img src="Image\Coatza_top.png" height="80" width="80"  alt="logo"></a>
+        <a data-update="item2"><span class="pl-0 ml-0 text-center navbar-brand mr-0"></span><asp:Label ID="lblBibliotk1" runat="server" Font-Bold="true" Font-Size="Medium" Font-Italic="true" ForeColor="#990000"></asp:Label></a>
+      </div>
+
+      <div>
+      </div>
+      <div class="col-md-8 mb-3">
+          <div class="ms-nav-list ms-news-highlight">
+               <ul id="news-highlight">
+                   <%--<asp:Image id="Image1" runat="server" Height="80px" ImageUrl="~/Image/banner.png"  Width="1500px" AlternateText="Imagen no disponible" ImageAlign="TextTop" />--%>
+                   <li data-update="item1"><span class="navbar-brand navbar-center"></span><asp:Label ID="Label1" Text="BIBLIOTECAS PUBLICAS MUNICIPALES" runat="server" Font-Bold="true" Font-Size="X-Large" Font-Italic="true" ForeColor="#333399"></asp:Label></li>
+                   <li data-update="item1"><span class="navbar-brand navbar-center"></span><asp:Label ID="lblBibliotk" runat="server" Font-Bold="true" Font-Size="Medium" Font-Italic="true" ForeColor="#990000"></asp:Label></li>
+               </ul>
+          </div>
+       </div>
+
+      <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
+
+        <li class="ms-nav-item dropdown">
+          <a href="#" class="text-disabled ms-has-notification" id="mailDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flaticon-mail"></i></a>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="mailDropdown">
+            <li class="dropdown-menu-header">
+              <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Mail</span></h6><span class="badge badge-pill badge-success">3 New</span>
+            </li>
+            <li class="dropdown-divider"></li>
+            <li class="ms-scrollable ms-dropdown-list">
+              
+              
+             
+            </li>
+            <li class="dropdown-divider"></li>
+            <%--<li class="dropdown-menu-footer text-center">
+              <a href="apps/email.html">Go to Inbox</a>
+            </li>--%>
+          </ul>
+        </li>
+        <li class="ms-nav-item dropdown">
+          <a href="#" class="text-disabled ms-has-notification" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flaticon-bell"></i></a>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationDropdown">
+            <li class="dropdown-menu-header">
+              <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Notifications</span></h6><span class="badge badge-pill badge-info">4 New</span>
+            </li>
+            <li class="dropdown-divider"></li>
+            <li class="ms-scrollable ms-dropdown-list">
+              
+              
+            </li>
+            <li class="dropdown-divider"></li>
+            <%--<li class="dropdown-menu-footer text-center">
+              <a href="#">View all Notifications</a>
+            </li>--%>
+          </ul>
+        </li>
+        
+        <li class="ms-nav-item ms-nav-user dropdown">
+          <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img class="ms-user-img ms-img-round float-right" src="Fotos\user-32.png" alt="people"> </a>
+          <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
+            <li class="dropdown-menu-header">
+              <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Bienvenido: <asp:Label ID="lblNameUser" runat="server" Font-Size="X-Small" Font-Italic="true" ForeColor="#990000"></asp:Label></span></h6>
+            </li>
+            <li class="dropdown-divider"></li>
+            <li class="ms-dropdown-list">
+              <a class="media fs-14 p-2" href="ProfilerUserWebPag.aspx"> <span><i class="flaticon-user mr-2"></i> Perfil del Usuario</span> </a>
+              <%--<a class="media fs-14 p-2" href="#"> <span><i class="flaticon-mail mr-2"></i> Inbox</span> <span class="badge badge-pill badge-info">3</span> </a>--%>
+              <a class="media fs-14 p-2" href="CambioContraseñawebPag.aspx"> <span><i class="flaticon-gear mr-2"></i> Cambio de Contraseña</span> </a>
+            </li>
+            <li class="dropdown-divider"></li>
+            <li class="dropdown-menu-footer">
+              <a class="media fs-14 p-2" href="#"> <span><i class="flaticon-security mr-2"></i> Lock</span> </a>
+            </li>
+            <li class="dropdown-menu-footer">
+              <a class="media fs-14 p-2" href="\Account\OutSession.aspx"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span> </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+     <%-- <div class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler" data-toggle="slideDown" data-target="#ms-nav-options">
+        <span class="ms-toggler-bar bg-primary"></span>
+        <span class="ms-toggler-bar bg-primary"></span>
+        <span class="ms-toggler-bar bg-primary"></span>
+      </div>--%>
+
+    </nav>
+
+      <form id="form1" runat="server" class="d-sm-flex mb-4">
+                  <telerik:RadScriptManager runat="server" ID="RadScriptManager1" AsyncPostBackTimeout="0" />
+                <telerik:RadSkinManager ID="RadSkinManager1" runat="server" ShowChooser="false" EnableEmbeddedSkins="false" />
+                <telerik:RadWindowManager ID="RadWindowManager1" Skin="Sunset" ShowContentDuringLoad="false" VisibleStatusbar="false" ReloadOnShow="true" runat="server" EnableShadow="true">
+                    <Windows>
+                        <telerik:RadWindow ID="RadWindow1" runat="server" Behaviors="Close,Move,Resize" Modal="true" VisibleStatusbar="false" Width="300%" Height="380%" CenterIfModal="true"
+                         NavigateUrl="ProfilerUserWebPag.aspx" Title="Consulta de Libros" Skin="Simple" MaxWidth="200px" MaxHeight="300px">
+                        </telerik:RadWindow>
+                    </Windows>
+                </telerik:RadWindowManager>
+
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+        </form>
+
+
+     </main>
+
+
+
+
+    <!-- SCRIPTS -->
+  <!-- Global Required Scripts Start -->
+  <script src="assets\js\jquery-3.5.1.min.js"></script>
+  <script src="assets\js\popper.min.js"></script>
+  <script src="assets\js\bootstrap.min.js"></script>
+  <script src="assets\js\perfect-scrollbar.js"> </script>
+  <script src="assets\js\jquery-ui.min.js"> </script>
+  <!-- Global Required Scripts End -->
+
+  <!-- Page Specific Scripts Start -->
+  <script src="assets\js\slick.min.js"> </script>
+  <script src="assets\js\moment.js"> </script>
+  <script src="assets\js\jquery.webticker.min.js"> </script>
+  <script src="assets\js\Chart.bundle.min.js"> </script>
+ <%-- <script src="assets\js\Chart.Financial.js"> </script>--%>
+  <%--<script src="assets\js\cryptocurrency.js"> </script>--%>
+  <!-- Page Specific Scripts Finish -->
+
+  <!-- Mystic core JavaScript -->
+  <script src="assets\js\framework.js"></script>
+
+  <!-- Settings -->
+  <script src="assets\js\settings.js"></script>
+
+</body>
+</html>
